@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main() {
+	char input[100];
+	bool flag = false;
+	cout << "Enter a string: ";
+	cin >> input;
+	for (int i = 0; input[i] != '\0'; i++) {
+		if (input[0] >= 'A' || input[0] <= 'Z' || input[0] >= 'a' || input[0] <= 'z' || input[0] == '_') {
+			if (input[i] >= 'A' || input[i] <= 'Z' || input[i] >= 'a' || input[i] <= 'z' || input[i] == '_' || input[i] >= '0' && input[i] <= '9') {
+				flag = true;
+			}
+		}
+	}
+	if (flag == false) {
+		cout << " not Identifier" << endl;
+	}
+	else {
+		cout << "Given Input is Identifier" << endl;
+	}
+}

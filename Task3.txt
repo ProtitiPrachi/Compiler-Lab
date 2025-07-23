@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int main() {
+	string input;
+	cout << "Enter a line of code: ";
+	cin >> input;
+	if (input[0] == '/' && input[1] == '/') {
+		cout << "single line comment" << endl;
+	}
+	else if (input[0] == '/' && input[1] == '*' && input[input.length() - 1] == '/' && input[input.length() - 2] == '*') {
+		cout << "multi line comment" << endl;
+	}
+	else {
+		cout << "not a comment" << endl;
+	}
+	return 0;
+}
