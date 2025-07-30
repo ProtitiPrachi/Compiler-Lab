@@ -1,0 +1,48 @@
+#include<iostream>
+#include<fstream>
+using namespace std;
+int main(){
+    ifstream file("input.txt");
+    string line;
+    while(getline(file, line))
+
+        //keyword
+    if(line=="int"|| line == "float" || line == "if" || line == "else" || line == "for" || line == "while" ||
+        line == "return" || line == "void"|| line == "double" || line == "char"){
+                cout<<line<<" -> Keyword"<<endl;
+            }
+
+    //operator
+         else if(line == "+" || line == "-" || line == "*" || line == "/" ||line == "=" || line == "==" ||
+                 line == "!=" || line == "<" ||line == ">" || line == "<=" || line == ">=" || line == "%" ||
+                 line == "&&" || line == "||" || line == "++" || line == "--"){
+                     cout<<line<<" -> Operator"<<endl;
+                 }
+
+                 //punctuation
+        else if (line == ";" || line == "," || line == "(" || line == ")" || line == "{" || line == "}" || line == "[" || line == "]") {
+        cout << line << " -> Punctuation" << endl;
+    }
+
+    //identifier
+else {
+                   bool flag=true;
+        if (!((line[0] >= 'A' && line[0] <= 'Z') || (line[0] >= 'a' && line[0] <= 'z') || line[0] == '_')) {
+            flag = false;
+        } else {
+            for (int i = 1; i < line.size(); i++) {
+                if (!((line[i] >= 'A' && line[i] <= 'Z') || (line[i] >= 'a' && line[i] <= 'z') ||
+                      (line[i] >= '0' && line[i] <= '9') || line[i] == '_')) {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+
+        if (flag)
+            cout << line << " -> Identifier" << endl;
+        else
+            cout << line << " -> Not an identifier" << endl;
+    }
+    return 0;
+}
